@@ -1,0 +1,199 @@
+/*
+ ===============================================================================
+ Name        : main.c
+ Author      : $(author)
+ Version     :
+ Copyright   : $(copyright)
+ Description : main definition
+ ===============================================================================
+ */
+
+#if defined (__USE_LPCOPEN)
+#if defined(NO_BOARD_LIB)
+#include "chip.h"
+#else
+#include "board.h"
+#endif
+#endif
+
+#include <cr_section_macros.h>
+#include <stdio.h>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+#include <iostream>
+//#include <string>
+#include <cstring>
+#include <sstream>
+
+// TODO: insert other include files here
+#include "FreeRTOS.h"
+#include "event_groups.h"
+#include "task.h"
+
+#include <mutex>
+#include "semphr.h"
+#include "queue.h"
+#include "DigitalIoPin.h"
+
+using namespace std;
+
+#define QUEUE_LENGTH 		10
+#define SW1BIT 				(1 << 1)
+#define SW2BIT 				(1 << 2)
+#define SW3BIT 				(1 << 3)
+#define BITS_TO_WAIT 		0x0E
+#define CLEAR_ON_EXIT		pdTRUE
+#define DONT_CLEAR_ON_EXIT	pdFALSE
+#define WAIT_ALL_BITS		pdTRUE
+#define DONT_WAIT_ALL_BITS	pdFALSE
+#define TIME_TO_WAIT        pdMS_TO_TICKS( 10000 )
+#define KAKKA				0
+
+DigitalIoPin *SW1;
+DigitalIoPin *SW2;
+DigitalIoPin *SW3;
+
+SemaphoreHandle_t xBinarySemaphore;
+SemaphoreHandle_t xUARTSemaphore;
+
+/* Transmit and Receive Buffers */
+static uint16_t xferArray[] = {0x1111, 0x2222, 0x3333, 0x4444};
+static uint16_t rx_buff[sizeof(xferArray) / sizeof(xferArray[0])];
+
+/* SPI Transfer Setup */
+static SPI_DATA_SETUP_T RXbuffer;
+
+extern "C" {
+
+void vConfigureTimerForRunTimeStats(void) {
+	Chip_SCT_Init(LPC_SCTSMALL1);
+	LPC_SCTSMALL1->CONFIG = SCT_CONFIG_32BIT_COUNTER;
+	LPC_SCTSMALL1->CTRL_U = SCT_CTRL_PRE_L(255) | SCT_CTRL_CLRCTR_L; // set prescaler to 256 (255 + 1), and start timer
+}
+
+}
+
+/* end runtime statictics collection */
+
+static void init_SPI_PinMux(void) {
+#if (defined(BOARD_NXP_LPCXPRESSO_1549))
+
+	/* Enable the clock to the Switch Matrix */
+	Chip_Clock_EnablePeriphClock(SYSCTL_CLOCK_SWM);
+	/*
+	 * Initialize SPI0 pins connect
+	 * SCK0: PINASSIGN3[15:8]: Select P0.0
+	 * MOSI0: PINASSIGN3[23:16]: Select P0.16
+	 * MISO0: PINASSIGN3[31:24] : Select P0.10
+	 * SSEL0: PINASSIGN4[7:0]: Select P0.9
+	 */
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 0,
+			(IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 29,
+			(IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 10,
+			(IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 9,
+			(IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+
+	Chip_SWM_MovablePinAssign(SWM_SPI0_SCK_IO, 0); /* P0.0 */
+	Chip_SWM_MovablePinAssign(SWM_SPI0_MOSI_IO, 29);/* P0.16 */
+	Chip_SWM_MovablePinAssign(SWM_SPI0_MISO_IO, 10);/* P0.10 */
+	Chip_SWM_MovablePinAssign(SWM_SPI0_SSELSN_0_IO, 9); /* P0.9 */
+
+	/* Disable the clock to the Switch Matrix to save power */
+	Chip_Clock_DisablePeriphClock(SYSCTL_CLOCK_SWM);
+#else
+	/* Configure your own SPI pin muxing here if needed */
+#warning "No SPI pin muxing defined"
+#endif
+}
+
+static void init_SPI(void) {
+	SPI_CFG_T spiCfg;
+	SPI_DELAY_CONFIG_T spiDelayCfg;
+
+	Chip_SPI_Init(LPC_SPI0);
+
+	spiCfg.Mode = SPI_MODE_MASTER;
+	spiCfg.ClockMode = SPI_CLOCK_MODE0;
+	spiCfg.DataOrder = SPI_DATA_MSB_FIRST;
+	spiCfg.SSELPol = SPI_CFG_SPOL0_LO;
+	spiCfg.ClkDiv = 0x0048;
+
+	Chip_SPI_SetConfig(LPC_SPI0, &spiCfg);
+
+	spiDelayCfg.PreDelay = 2;
+	spiDelayCfg.PostDelay = 2;
+	spiDelayCfg.FrameDelay = 2;
+	spiDelayCfg.TransferDelay = 2;
+	Chip_SPI_DelayConfig(LPC_SPI0, &spiDelayCfg);
+
+	Chip_SPI_EnableLoopBack(LPC_SPI0);
+
+	Chip_SPI_Enable(LPC_SPI0);
+}
+
+static void RXSetup(void) {
+	/* Setup Transfer structure, this data should be retained for the entire transmission */
+	RXbuffer.pTx = xferArray; /* Transmit Buffer */
+	RXbuffer.pRx = rx_buff;/* Receive Buffer */
+	RXbuffer.DataSize = sizeof(xferArray[0]) * 8; /* Data size in bits */
+	RXbuffer.Length = sizeof(xferArray) / sizeof(xferArray[0]); /* Total frame length */
+	/* Assert only SSEL0 */
+	RXbuffer.ssel = SPI_TXCTL_ASSERT_SSEL0 | SPI_TXCTL_DEASSERT_SSEL1
+			| SPI_TXCTL_DEASSERT_SSEL2 |
+			SPI_TXCTL_DEASSERT_SSEL3;
+	RXbuffer.TxCnt = 0;
+	RXbuffer.RxCnt = 0;
+}
+
+/* Sets up system hardware */
+static void prvSetupHardware(void) {
+	SystemCoreClockUpdate();
+	Board_Init();
+
+	/* Initial LED0 state is off */
+	Board_LED_Set(0, false);
+}
+
+static void vReadSW1Task(void *pvParameters) {
+	vTaskDelay(50);
+	while (1) {
+		Chip_SPI_RWFrames_Blocking(LPC_SPI0, &RXbuffer);
+		vTaskDelay(100);
+	}
+}
+
+int main(void) {
+
+	prvSetupHardware();
+
+	Board_Init();
+	Board_Debug_Init();
+
+	SW1 = new DigitalIoPin(0, 17, DigitalIoPin::pullup);
+	SW2 = new DigitalIoPin(1, 11, DigitalIoPin::pullup);
+	SW3 = new DigitalIoPin(1, 9, DigitalIoPin::pullup);
+
+	/* Setup SPI */
+	init_SPI_PinMux();
+	init_SPI();
+	RXSetup();
+
+	xBinarySemaphore = xSemaphoreCreateBinary();
+	vQueueAddToRegistry(xBinarySemaphore, "BinaryMutex");
+
+	xUARTSemaphore = xSemaphoreCreateMutex();
+	vQueueAddToRegistry(xUARTSemaphore, "UARTMutex");
+
+	xTaskCreate(vReadSW1Task, "vTaskReadSW1",
+			configMINIMAL_STACK_SIZE + 228, NULL, (tskIDLE_PRIORITY + 2UL),
+			(TaskHandle_t *) NULL);
+
+	/* Start the scheduler */
+	vTaskStartScheduler();
+
+	/* Should never arrive here */
+	return 1;
+}
