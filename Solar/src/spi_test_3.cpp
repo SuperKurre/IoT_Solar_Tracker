@@ -52,14 +52,15 @@ uint16_t calcSteps(uint16_t ldr1, uint16_t ldr2){
 static void vTask_send_data_to_rapi(void* pvPrameters){
 
 	RapiData rapidata;
-	char starting[2]{2, 0}; //start-of-text ascii
-	char ending[2]{4, 0}; //end-of-transmission ascii eot
+	char starting = 2; //start-of-text ascii
+	char ending = 4; //end-of-transmission ascii eot
 	std::string message;
 
 	while(1){
+
 		xQueueReceive(rapiQueue, &rapidata, portMAX_DELAY); //block until  get rapidata
 
-		Board_UARTPutSTR(starting); //initiate transimission round
+		Board_UARTPutChar(starting); //initiate transimission round
 
 		if(rapidata.tiltDir==1)
 			message += "tiltdir=up,";
@@ -71,6 +72,7 @@ static void vTask_send_data_to_rapi(void* pvPrameters){
 		else
 			message += "rotatedir=counterclockwise,";
 
+		/*format data with comma-separated-values*/
 		message += "north_ldr=";
 		message += std::to_string(rapidata.northLDR);
 		message += ',';
@@ -91,7 +93,7 @@ static void vTask_send_data_to_rapi(void* pvPrameters){
 		Board_UARTPutSTR( message.c_str() ); // then send message to uart
 
 		/*send the ending part of uart message transmission*/
-		Board_UARTPutSTR(ending);
+		Board_UARTPutChar(ending);
 
 		message=""; //reset the message in preparation of next round
 
@@ -196,7 +198,7 @@ int main(){
 			(TaskHandle_t *) NULL);
 
 	xTaskCreate(vTask_send_data_to_rapi, "sendRapiData",
-			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
+			configMINIMAL_STACK_SIZE*8 , NULL, (tskIDLE_PRIORITY + 1UL),
 			(TaskHandle_t *) NULL);
 
 	vTaskStartScheduler();
