@@ -18,8 +18,14 @@
 #include "MAXIM1249.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
+#include "RapiData.h"
 
 #define DIFF_LIM 40
+
+QueueHandle_t rapiQueue; //send rapi_data into the queue, send the enqueued datapackets into the rapi device
+
+
 
 /* Sets up system hardware */
 static void prvSetupHardware(void){
@@ -42,6 +48,10 @@ uint16_t calcSteps(uint16_t ldr1, uint16_t ldr2){
 	}
 }
 
+
+static void vTask_send_data_to_rapi(void* pvPrameters){
+
+}
 
 /*Task that reads ADC values*/
 static void vTask_ADC(void* pvPrameters){
@@ -106,11 +116,25 @@ static void vTask_ADC(void* pvPrameters){
 			rot_dir = "stop";
 		}
 
-		sprintf(uart_buff,"N: %d	S: %d	W: %d	E:%d\n\r", north_ldr, south_ldr, west_ldr, east_ldr);
-		sprintf(dir_buff, "tilt_dir: %s		rot_dir: %s\n\r", tilt_dir.c_str(),rot_dir.c_str());
+		int tdir, rdir;	//temp variables for initalize rapidata
+		if (tilt_dir=="down")
+			tdir = 0;
+		else
+			tdir = 1;
 
-		Board_UARTPutSTR(uart_buff);
-		Board_UARTPutSTR(dir_buff);
+		if(rot_dir == "right")
+			rdir = 1;
+		else
+			rdir = 0;
+
+		RapiData rd(tdir, rdir, (int)north_ldr, (int)south_ldr, (int)west_ldr, (int)east_ldr );
+		xQueueSendToBack(rapiQueue, &rd, 0 ); //send to queue, but dont block, and dont wait
+
+//		sprintf(uart_buff,"N: %d	S: %d	W: %d	E:%d\n\r", north_ldr, south_ldr, west_ldr, east_ldr);
+//		sprintf(dir_buff, "tilt_dir: %s		rot_dir: %s\n\r", tilt_dir.c_str(),rot_dir.c_str());
+//
+//		Board_UARTPutSTR(uart_buff);
+//		Board_UARTPutSTR(dir_buff);
 
 		vTaskDelay(500);
 	}
@@ -119,9 +143,13 @@ static void vTask_ADC(void* pvPrameters){
 int main(){
 
 	prvSetupHardware();
-
+	rapiQueue = xQueueCreate(20, sizeof(RapiData));
 	/*ADC Task*/
 	xTaskCreate(vTask_ADC, "vTask_ADC",
+			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
+			(TaskHandle_t *) NULL);
+
+	xTaskCreate(vTask_send_data_to_rapi, "sendRapiData",
 			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
 			(TaskHandle_t *) NULL);
 
