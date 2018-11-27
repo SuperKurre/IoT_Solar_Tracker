@@ -51,6 +51,52 @@ uint16_t calcSteps(uint16_t ldr1, uint16_t ldr2){
 
 static void vTask_send_data_to_rapi(void* pvPrameters){
 
+	RapiData rapidata;
+	char starting[2]{2, 0}; //start-of-text ascii
+	char ending[2]{4, 0}; //end-of-transmission ascii eot
+	std::string message;
+
+	while(1){
+		xQueueReceive(rapiQueue, &rapidata, portMAX_DELAY); //block until  get rapidata
+
+		Board_UARTPutSTR(starting); //initiate transimission round
+
+		if(rapidata.tiltDir==1)
+			message += "tiltdir=up,";
+		else
+			message += "tiltdir=down,";
+
+		if(rapidata.rotateDir==1)
+			message += "rotatedir=clockwise,";
+		else
+			message += "rotatedir=counterclockwise,";
+
+		message += "north_ldr=";
+		message += std::to_string(rapidata.northLDR);
+		message += ',';
+
+		message += "south_ldr=";
+		message += std::to_string(rapidata.southLDR);
+		message += ',';
+
+		message += "west_ldr=";
+		message += std::to_string(rapidata.westLDR);
+		message += ',';
+
+		message += "east_ldr=";
+		message += std::to_string(rapidata.eastLDR);
+		//last part into message was formatted above
+
+
+		Board_UARTPutSTR( message.c_str() ); // then send message to uart
+
+		/*send the ending part of uart message transmission*/
+		Board_UARTPutSTR(ending);
+
+		message=""; //reset the message in preparation of next round
+
+
+	}
 }
 
 /*Task that reads ADC values*/
@@ -127,9 +173,9 @@ static void vTask_ADC(void* pvPrameters){
 		else
 			rdir = 0;
 
+		/*send rapidata to the queue, so the sendingtask can send the data*/
 		RapiData rd(tdir, rdir, (int)north_ldr, (int)south_ldr, (int)west_ldr, (int)east_ldr );
 		xQueueSendToBack(rapiQueue, &rd, 0 ); //send to queue, but dont block, and dont wait
-
 //		sprintf(uart_buff,"N: %d	S: %d	W: %d	E:%d\n\r", north_ldr, south_ldr, west_ldr, east_ldr);
 //		sprintf(dir_buff, "tilt_dir: %s		rot_dir: %s\n\r", tilt_dir.c_str(),rot_dir.c_str());
 //

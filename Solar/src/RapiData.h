@@ -17,10 +17,10 @@ public:
 	virtual ~RapiData();
 
 
-private:
-	int tiltDir;
-	int rotateDir;
-	int northLDR; //
+
+	int tiltDir;	//1 is up, 0 is down
+	int rotateDir; //1 is clockwise, 0 is counterclockwise
+	int northLDR; // data values from adc
 	int southLDR;
 	int westLDR;
 	int eastLDR;

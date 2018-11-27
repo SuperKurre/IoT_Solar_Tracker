@@ -7,10 +7,7 @@
 
 #include "RapiData.h"
 
-RapiData::RapiData() {
-	// TODO Auto-generated constructor stub
 
-}
 
 RapiData::~RapiData() {
 	// TODO Auto-generated destructor stub

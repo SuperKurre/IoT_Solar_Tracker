@@ -44,7 +44,7 @@ all: Solar.axf
 Solar.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU C++ Linker'
-	arm-none-eabi-c++ -nostdlib -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
