@@ -1,30 +1,5 @@
-13:11:48 **** Build of configuration Debug for project Solar ****
+15:20:01 **** Incremental Build of configuration Debug for project Solar ****
 make -r -j8 all 
-Building file: ../src/MAXIM1249.cpp
-Building file: ../src/SPI.cpp
-Building file: ../src/spi_test_3.cpp
-Invoking: MCU C++ Compiler
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/MAXIM1249.d" -MT"src/MAXIM1249.o" -MT"src/MAXIM1249.d" -o "src/MAXIM1249.o" "../src/MAXIM1249.cpp"
-Invoking: MCU C++ Compiler
-arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/SPI.d" -MT"src/SPI.o" -MT"src/SPI.d" -o "src/SPI.o" "../src/SPI.cpp"
-arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
-Finished building: ../src/SPI.cpp
-Finished building: ../src/MAXIM1249.cpp
- 
- 
-../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
-../src/spi_test_3.cpp:61:6: warning: variable 'tilt_steps' set but not used [-Wunused-but-set-variable]
-  int tilt_steps = 0;     /*amount of steps for tilting*/
-      ^~~~~~~~~~
-../src/spi_test_3.cpp:62:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
-  int rot_steps = 0;     /*amount of steps for rotation*/
-      ^~~~~~~~~
-../src/spi_test_3.cpp:65:7: warning: unused variable 'steps_buff' [-Wunused-variable]
-  char steps_buff[30] = {0};
-       ^~~~~~~~~~
-Finished building: ../src/spi_test_3.cpp
- 
 Building target: Solar.axf
 Invoking: MCU C++ Linker
 arm-none-eabi-c++ -nostdlib -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/SPI.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
@@ -41,5 +16,5 @@ arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf"
   16220	    104	    368	  16692	   4134	Solar.axf
  
 
-13:11:51 Build Finished (took 2s.838ms)
+15:20:02 Build Finished (took 1s.38ms)
 

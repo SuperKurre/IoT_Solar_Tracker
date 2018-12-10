@@ -1082,3 +1082,67 @@ arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf"
    text	   data	    bss	    dec	    hex	filename
   16220	    104	    368	  16692	   4134	Solar.axf
  
+10:01:59 **** Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:00 **** Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:01 **** Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:02 **** Build of configuration Debug for project Solar ****
+make -r -j8 all 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/SPI.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       16324 B       256 KB      6.23%
+      Ram0_16_32:         472 B        32 KB      1.44%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  16220	    104	    368	  16692	   4134	Solar.axf
+ 
+10:02:10 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:10 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:11 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:02:11 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j8 all 
+make: Nothing to be done for `all'.
+15:19:57 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+15:19:59 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+15:20:00 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+15:20:01 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j8 all 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\OMISTAJA\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/SPI.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       16324 B       256 KB      6.23%
+      Ram0_16_32:         472 B        32 KB      1.44%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  16220	    104	    368	  16692	   4134	Solar.axf
+ 
