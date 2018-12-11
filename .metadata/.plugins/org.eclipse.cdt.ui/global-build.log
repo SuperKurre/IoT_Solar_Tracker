@@ -3025,3 +3025,1098 @@ arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf"
    text	   data	    bss	    dec	    hex	filename
   22128	    104	    488	  22720	   58c0	Solar.axf
  
+08:59:13 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:59:14 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:59:15 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:59:15 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:236:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25348 B       256 KB      9.67%
+      Ram0_16_32:         592 B        32 KB      1.81%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25244	    104	    488	  25836	   64ec	Solar.axf
+ 
+09:13:38 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:13:39 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:13:39 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:13:40 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:13:42 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:14:30 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:31 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:31 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:32 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:14:33 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:14:54 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:55 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:55 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:14:56 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:14:57 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:19:49 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:19:50 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:19:50 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:19:51 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:236:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25412 B       256 KB      9.69%
+      Ram0_16_32:         596 B        32 KB      1.82%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25308	    104	    492	  25904	   6530	Solar.axf
+ 
+09:19:53 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:21:53 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:21:54 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:21:54 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:21:55 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:236:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25412 B       256 KB      9.69%
+      Ram0_16_32:         596 B        32 KB      1.82%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25308	    104	    492	  25904	   6530	Solar.axf
+ 
+09:21:57 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:28:31 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:28:32 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:28:32 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:28:33 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25428 B       256 KB      9.70%
+      Ram0_16_32:         596 B        32 KB      1.82%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25324	    104	    492	  25920	   6540	Solar.axf
+ 
+09:28:35 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:36:20 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:36:20 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:36:21 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:36:21 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25428 B       256 KB      9.70%
+      Ram0_16_32:         596 B        32 KB      1.82%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25324	    104	    492	  25920	   6540	Solar.axf
+ 
+09:36:24 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:39:27 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:39:27 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:39:28 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:39:28 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:181:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:182:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:185:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:190:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:237:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:239:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:178:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25428 B       256 KB      9.70%
+      Ram0_16_32:         596 B        32 KB      1.82%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25324	    104	    492	  25920	   6540	Solar.axf
+ 
+09:39:31 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:48:51 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:48:54 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:48:55 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:48:56 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:180:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:181:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:183:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:184:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:189:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:235:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:236:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:237:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:238:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:177:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25284 B       256 KB      9.65%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25180	    104	    480	  25764	   64a4	Solar.axf
+ 
+09:49:02 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:55:18 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:55:19 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:55:20 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:55:20 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:176:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:177:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:179:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:180:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:185:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:231:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:232:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:233:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:234:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:173:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25284 B       256 KB      9.65%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25180	    104	    480	  25764	   64a4	Solar.axf
+ 
+09:55:23 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+09:58:39 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:58:40 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:58:41 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:58:41 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:179:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:180:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:182:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:183:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:188:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:234:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:235:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:236:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:237:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:176:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25284 B       256 KB      9.65%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25180	    104	    480	  25764	   64a4	Solar.axf
+ 
+09:58:43 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+10:05:34 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+10:05:34 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+10:05:35 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:05:36 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+10:05:37 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+10:51:16 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:17 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:18 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:18 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void RIT_start(int)':
+../src/spi_test_3.cpp:126:2: error: 'm1steps' was not declared in this scope
+  m1steps = steps;
+  ^~~~~~~
+../src/spi_test_3.cpp:126:2: note: suggested alternative: 'steps'
+  m1steps = steps;
+  ^~~~~~~
+  steps
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [src/spi_test_3.o] Error 1
+10:51:20 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void RIT_start(int)':
+../src/spi_test_3.cpp:126:2: error: 'm1steps' was not declared in this scope
+  m1steps = steps;
+  ^~~~~~~
+../src/spi_test_3.cpp:126:2: note: suggested alternative: 'steps'
+  m1steps = steps;
+  ^~~~~~~
+  steps
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [src/spi_test_3.o] Error 1
+10:51:51 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:52 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:52 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+10:51:53 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:260:6: warning: variable 'rot_steps' set but not used [-Wunused-but-set-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       25284 B       256 KB      9.65%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  25180	    104	    480	  25764	   64a4	Solar.axf
+ 
+10:51:55 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+11:01:20 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+11:01:21 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+11:01:21 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:01:22 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:259:6: warning: unused variable 'tilt_steps' [-Wunused-variable]
+  int tilt_steps = 0;     /*amount of steps for tilting*/
+      ^~~~~~~~~~
+../src/spi_test_3.cpp:260:6: warning: unused variable 'rot_steps' [-Wunused-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       23728 B       256 KB      9.05%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  23624	    104	    480	  24208	   5e90	Solar.axf
+ 
+11:01:25 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+11:05:02 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+11:05:03 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+11:05:04 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:05:04 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:259:6: warning: unused variable 'tilt_steps' [-Wunused-variable]
+  int tilt_steps = 0;     /*amount of steps for tilting*/
+      ^~~~~~~~~~
+../src/spi_test_3.cpp:260:6: warning: unused variable 'rot_steps' [-Wunused-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       23728 B       256 KB      9.05%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  23624	    104	    480	  24208	   5e90	Solar.axf
+ 
+11:05:06 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+11:06:57 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+11:06:58 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+11:06:58 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:06:59 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:259:6: warning: unused variable 'tilt_steps' [-Wunused-variable]
+  int tilt_steps = 0;     /*amount of steps for tilting*/
+      ^~~~~~~~~~
+../src/spi_test_3.cpp:260:6: warning: unused variable 'rot_steps' [-Wunused-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       23728 B       256 KB      9.05%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  23624	    104	    480	  24208	   5e90	Solar.axf
+ 
+11:07:01 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.
+11:08:26 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+11:08:26 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+11:08:27 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+11:08:27 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/spi_test_3.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/spi_test_3.d" -MT"src/spi_test_3.o" -MT"src/spi_test_3.d" -o "src/spi_test_3.o" "../src/spi_test_3.cpp"
+../src/spi_test_3.cpp: In function 'void vTask_rapi_communication(void*)':
+../src/spi_test_3.cpp:205:13: warning: unused variable 'startingchar' [-Wunused-variable]
+  const char startingchar = 2; //start-of-text ascii
+             ^~~~~~~~~~~~
+../src/spi_test_3.cpp:206:13: warning: unused variable 'endingchar' [-Wunused-variable]
+  const char endingchar = 4; //end-of-transmission ascii eot
+             ^~~~~~~~~~
+../src/spi_test_3.cpp:208:6: warning: unused variable 'rx_letter' [-Wunused-variable]
+  int rx_letter;
+      ^~~~~~~~~
+../src/spi_test_3.cpp:209:6: warning: unused variable 'rx_count' [-Wunused-variable]
+  int rx_count = 0;
+      ^~~~~~~~
+../src/spi_test_3.cpp:214:7: warning: unused variable 'inst1' [-Wunused-variable]
+  char inst1[]="FIRSTMESSAGE...";
+       ^~~~~
+../src/spi_test_3.cpp: In function 'void vTask_ADC(void*)':
+../src/spi_test_3.cpp:259:6: warning: unused variable 'tilt_steps' [-Wunused-variable]
+  int tilt_steps = 0;     /*amount of steps for tilting*/
+      ^~~~~~~~~~
+../src/spi_test_3.cpp:260:6: warning: unused variable 'rot_steps' [-Wunused-variable]
+  int rot_steps = 0;     /*amount of steps for rotation*/
+      ^~~~~~~~~
+../src/spi_test_3.cpp:261:7: warning: unused variable 'uart_buff' [-Wunused-variable]
+  char uart_buff[30] = {0};
+       ^~~~~~~~~
+../src/spi_test_3.cpp:262:7: warning: unused variable 'steps_buff' [-Wunused-variable]
+  char steps_buff[30] = {0};
+       ^~~~~~~~~~
+../src/spi_test_3.cpp:263:7: warning: unused variable 'dir_buff' [-Wunused-variable]
+  char dir_buff[30]={0};
+       ^~~~~~~~
+../src/spi_test_3.cpp: At global scope:
+../src/spi_test_3.cpp:202:13: warning: 'void vTask_rapi_communication(void*)' defined but not used [-Wunused-function]
+ static void vTask_rapi_communication(void* pvPrameters){
+             ^~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../src/spi_test_3.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DigitalIoPin.o ./src/MAXIM1249.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/spi_test_3.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       23728 B       256 KB      9.05%
+      Ram0_16_32:         584 B        32 KB      1.78%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  23624	    104	    480	  24208	   5e90	Solar.axf
+ 
+11:08:30 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+make: Nothing to be done for `all'.

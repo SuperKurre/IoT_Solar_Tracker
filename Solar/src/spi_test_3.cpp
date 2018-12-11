@@ -54,8 +54,8 @@ struct motorCmd {
 
 DigitalIoPin *Motor1Direction;
 DigitalIoPin *Motor1;
-DigitalIoPin *Motor2Direction;
-DigitalIoPin *Motor2;
+//DigitalIoPin *Motor2Direction;
+//DigitalIoPin *Motor2;
 
 
 SemaphoreHandle_t xUARTSemaphore;
@@ -66,9 +66,9 @@ QueueHandle_t xQueue;
 
 int direction = 1;
 volatile int motorState = 0;
+volatile bool m1state=false;
 int ppsValue = 1500;
 volatile uint32_t motor1steps = 0;
-volatile uint32_t motor2steps = 0;
 volatile uint32_t RIT_count;
 
 
@@ -80,23 +80,21 @@ void RIT_IRQHandler(void) {
 	// Tell timer that we have processed the interrupt.
 	// Timer then removes the IRQ until next match occurs
 	Chip_RIT_ClearIntStatus(LPC_RITIMER); // clear IRQ flag
-	if (motor1steps > 0 || motor2steps > 0) {
-		if (motor1steps != 0) {
-			Motor1->write(motorState);
-			motor1steps--;
-		}
-
-		if (motor2steps != 0) {
-			Motor2->write(motorState);
-			motor2steps--;
-		}
-
-		motorState ^= 1;
+	if ( motor1steps > 0 ) {
+		Motor1->write(m1state);
+		motor1steps--;
+//		if (motor2steps != 0) {
+//			Motor2->write(motorState);
+//			motor2steps--;
+//		}
+//		motorState ^= 1;
+		m1state = !m1state;
 		// do something useful here...
 	} else {
 		Chip_RIT_Disable(LPC_RITIMER); // disable timer
-		Motor1->write(MOTOR_OFF);
-		Motor2->write(MOTOR_OFF);
+		Motor1->write(false);
+		m1state=false;
+//		Motor2->write(MOTOR_OFF);
 		// Give semaphore and set context switch flag if a higher priority task was woken up
 		xSemaphoreGiveFromISR(sbRIT, &xHigherPriorityWoken);
 	}
@@ -119,12 +117,13 @@ static void prvSetupHardware(void){
 }
 
 
-void RIT_start(void) {
+void RIT_start(int steps) {
 	uint64_t cmp_value;
 	// Determine approximate compare value based on clock rate and passed interval
 	cmp_value = (uint64_t) Chip_Clock_GetSystemClockRate() * 275 / 1000000;
 	// disable timer during configuration
 	Chip_RIT_Disable(LPC_RITIMER);
+	motor1steps = steps;
 	// enable automatic clear on when compare value==timer value
 	// this makes interrupts trigger periodically
 	Chip_RIT_EnableCompClear(LPC_RITIMER);
@@ -144,6 +143,31 @@ void RIT_start(void) {
 	}
 }
 
+
+//void RIT_start(int steps) {
+//	uint64_t cmp_value;
+//	// Determine approximate compare value based on clock rate and passed interval
+//	cmp_value = (uint64_t) Chip_Clock_GetSystemClockRate() * 275 / 1000000;
+//	// disable timer during configuration
+//	Chip_RIT_Disable(LPC_RITIMER);
+//	// enable automatic clear on when compare value==timer value
+//	// this makes interrupts trigger periodically
+//	Chip_RIT_EnableCompClear(LPC_RITIMER);
+//	// reset the counter
+//	Chip_RIT_SetCounter(LPC_RITIMER, 0);
+//	Chip_RIT_SetCompareValue(LPC_RITIMER, cmp_value);
+//	// start counting
+//	Chip_RIT_Enable(LPC_RITIMER);
+//	// Enable the interrupt signal in NVIC (the interrupt controller)
+//	NVIC_EnableIRQ(RITIMER_IRQn);
+//	// wait for ISR to tell that we're done
+//	if (xSemaphoreTake(sbRIT, portMAX_DELAY) == pdTRUE) {
+//		// Disable the interrupt signal in NVIC (the interrupt controller)
+//		NVIC_DisableIRQ(RITIMER_IRQn);
+//	} else {
+//		// unexpected error
+//	}
+//}
 
 
 /*Calculate steps*/
@@ -248,38 +272,46 @@ static void vTask_ADC(void* pvPrameters){
 
 		/*calculate steps if difference between ldrs exceeds DIFF_LIM*/
 		if(abs(north_ldr - south_ldr) > DIFF_LIM){
-
-			tilt_steps = calcSteps(north_ldr, south_ldr);
+//			tilt_steps = calcSteps(north_ldr, south_ldr);
+//			motor1steps=tilt_steps;
 			/*if north_ldr gets more light than south_ldr move down*/
 			if(north_ldr > south_ldr){
-
+				Motor1Direction->write(false);
 				/*move down*/
 				tilt_dir = "down";
 			}
 			else{
 				/*move up*/
+				Motor1Direction->write(true);
 				tilt_dir = "up";
 			}
+			RIT_start(1000);
 		}
 		else{
 			tilt_dir = "stop";
+//			motor1steps=0;
 		}
-		if(abs(east_ldr - west_ldr) > DIFF_LIM){
+//		if(abs(east_ldr - west_ldr) > DIFF_LIM){
+//
+//			rot_steps = calcSteps(east_ldr, west_ldr);
+////			motor2steps=rot_steps;
+//			if(east_ldr > west_ldr){
+//				rot_dir = "right";
+////				Motor2Direction->write(false);
+//			}
+//			else{
+//				rot_dir = "left";
+////				Motor2Direction->write(true);
+//			}
+//		}
+//		else{
+//			rot_dir = "stop";
+////			motor2steps=0;
+//		}
 
-			rot_steps = calcSteps(east_ldr, west_ldr);
-			if(east_ldr > west_ldr){
-				rot_dir = "right";
-			}
-			else{
-				rot_dir = "left";
-			}
-		}
-		else{
-			rot_dir = "stop";
-		}
-
-		motor1steps = tilt_steps;
-		RIT_start();
+	//	motor1steps = tilt_steps;
+		//motor2steps= rot_steps;
+//		RIT_start(tilt_steps);
 
 		int tdir, rdir;	//temp variables for initalize rapidata
 		if (tilt_dir=="down")
@@ -301,7 +333,7 @@ static void vTask_ADC(void* pvPrameters){
 //		Board_UARTPutSTR(uart_buff);
 //		Board_UARTPutSTR(dir_buff);
 
-		vTaskDelay(500);
+		vTaskDelay(10);
 	}
 }
 
@@ -331,7 +363,7 @@ int main(){
 			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
 			(TaskHandle_t *) NULL);
 
-	xTaskCreate(vTask_rapi_communication, "rapi_comm",
+	xTaskCreate(vTask_real_rapi_uart_task, "rapi_comm",
 			configMINIMAL_STACK_SIZE*8 , NULL, (tskIDLE_PRIORITY + 1UL),
 			(TaskHandle_t *) NULL);
 
