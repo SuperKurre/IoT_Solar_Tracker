@@ -8,11 +8,12 @@
 			<item value=""/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\nxp\MCUXpressoIDE_10.2.1_795\ide\Examples\LPCOpen\lpcopen_2_20_lpcxpresso_nxp_lpcxpresso_1549.zip"/>
 			<item value="C:\Koulu\ARM\freertos10.zip"/>
 			<item value="C:\Koulu\lpcopen_2_20_lpcxpresso_nxp_lpcxpresso_1549.zip"/>
 		</list>
 	</section>
 	<section name="com.crt.quickstart.views.wizards.examples.QSExampleSelectionPage">
-		<item value="C:\Koulu\ARM" key="dirname"/>
+		<item value="C:\nxp\MCUXpressoIDE_10.2.1_795\ide\Examples\LPCOpen" key="dirname"/>
 	</section>
 </section>

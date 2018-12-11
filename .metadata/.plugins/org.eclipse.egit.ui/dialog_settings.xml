@@ -11,10 +11,12 @@
 		<item value="gitlab.com"/>
 	</list>
 	<list key="CommitDialog.authorValues">
+		<item value="Late347 &lt;late347@gmail.com&gt;"/>
 		<item value="OMISTAJA &lt;OMISTAJA@10.112.205.82&gt;"/>
 		<item value="Miikka &lt;Miikka@10.112.205.82&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="Late347 &lt;late347@gmail.com&gt;"/>
 		<item value="OMISTAJA &lt;OMISTAJA@10.112.205.82&gt;"/>
 		<item value="Miikka &lt;Miikka@10.112.205.82&gt;"/>
 	</list>

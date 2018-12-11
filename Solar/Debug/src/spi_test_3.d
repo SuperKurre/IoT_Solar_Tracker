@@ -60,7 +60,9 @@ src/spi_test_3.o src/spi_test_3.d: ../src/spi_test_3.cpp \
  C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/task.h \
  C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/list.h \
  C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/queue.h \
- ../src/RapiData.h
+ ../src/RapiData.h ../src/SerialPort.h ../src/DigitalIoPin.h \
+ C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/semphr.h \
+ C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/queue.h
 
 C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc/board.h:
 
@@ -187,3 +189,11 @@ C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest
 C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/queue.h:
 
 ../src/RapiData.h:
+
+../src/SerialPort.h:
+
+../src/DigitalIoPin.h:
+
+C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/semphr.h:
+
+C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include/queue.h:

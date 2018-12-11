@@ -18,6 +18,7 @@
 		<item value="org.eclipse.cdt:9.4.3.201802261533"/>
 		<item value="org.eclipse.cvs:1.4.404.v20180330-0640"/>
 		<item value="org.eclipse.draw2d:3.10.100.201606061308"/>
+		<item value="org.eclipse.egit.source:5.1.1.201809181055-r"/>
 		<item value="org.eclipse.egit:4.9.2.201712150930-r"/>
 		<item value="org.eclipse.emf.common:2.13.0.v20170609-0707"/>
 		<item value="org.eclipse.emf.ecore:2.13.0.v20170609-0707"/>

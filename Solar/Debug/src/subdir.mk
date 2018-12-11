@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../src/MAXIM1249.cpp \
 ../src/RapiData.cpp \
 ../src/SPI.cpp \
+../src/SerialPort.cpp \
 ../src/cr_cpp_config.cpp \
 ../src/cr_startup_lpc15xx.cpp \
 ../src/spi_test_3.cpp 
@@ -21,6 +22,7 @@ OBJS += \
 ./src/MAXIM1249.o \
 ./src/RapiData.o \
 ./src/SPI.o \
+./src/SerialPort.o \
 ./src/cr_cpp_config.o \
 ./src/cr_startup_lpc15xx.o \
 ./src/crp.o \
@@ -32,6 +34,7 @@ CPP_DEPS += \
 ./src/MAXIM1249.d \
 ./src/RapiData.d \
 ./src/SPI.d \
+./src/SerialPort.d \
 ./src/cr_cpp_config.d \
 ./src/cr_startup_lpc15xx.d \
 ./src/spi_test_3.d 
