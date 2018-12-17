@@ -1,8 +1,8 @@
 /*
  * DigitalIoPin.h
  *
- *  Created on: 31.1.2016
- *      Author: krl
+ *  Created on: 25 Jan 2018
+ *      Author: aaro
  */
 
 #ifndef DIGITALIOPIN_H_
@@ -10,20 +10,14 @@
 
 class DigitalIoPin {
 public:
-	enum pinMode {
-		output,
-		input,
-		pullup,
-		pulldown
-	};
-	DigitalIoPin(int port, int pin, pinMode mode, bool invert = false);
+	DigitalIoPin();
+	DigitalIoPin(int port, int pin, bool input = true, bool pullup = true, bool invert = false);
 	virtual ~DigitalIoPin();
-	virtual bool read();
+	bool read();
 	void write(bool value);
 private:
-	int port;
-	int pin;
-
+int pin_b,port_b;
+bool inv,in;
 };
 
 #endif /* DIGITALIOPIN_H_ */

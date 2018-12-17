@@ -1,45 +1,70 @@
 /*
  * DigitalIoPin.cpp
  *
- *  Created on: 31.1.2016
- *      Author: krl
+ *  Created on: 25 Jan 2018
+ *      Author: aaro
  */
 
 #include "DigitalIoPin.h"
 #include "chip.h"
+DigitalIoPin::DigitalIoPin() {
 
+}
+DigitalIoPin::DigitalIoPin(int port, int pin, bool input, bool pullup,bool invert) {
+	port_b = port;
+	pin_b = pin;
+	inv = invert;
+	in=input;
+	if (input) {
+		if (pullup) {
+			if (invert) {
+				Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin,
+						(IOCON_MODE_PULLUP | IOCON_DIGMODE_EN | IOCON_INV_EN));
+				Chip_GPIO_SetPinDIRInput(LPC_GPIO, port, pin);
+			} else {
+				Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin,
+						(IOCON_MODE_PULLUP | IOCON_DIGMODE_EN));
+				Chip_GPIO_SetPinDIRInput(LPC_GPIO, port, pin);
 
-DigitalIoPin::DigitalIoPin(int port_, int pin_, pinMode mode, bool invert) : port(port_), pin(pin_) {
-	if(mode == output) {
-		Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin, IOCON_MODE_INACT | IOCON_DIGMODE_EN);
+			}
+		}
+
+		else {
+			if (invert) {
+				Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin,
+						(IOCON_DIGMODE_EN | IOCON_INV_EN));
+				Chip_GPIO_SetPinDIRInput(LPC_GPIO, port, pin);
+			} else {
+				Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin, (IOCON_DIGMODE_EN));
+				Chip_GPIO_SetPinDIRInput(LPC_GPIO, port, pin);
+			}
+		}
+	} else {
+		Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin,IOCON_MODE_INACT | IOCON_DIGMODE_EN);
 		Chip_GPIO_SetPinDIROutput(LPC_GPIO, port, pin);
-	}
-	else {
-		uint32_t pm = IOCON_DIGMODE_EN;
+		Chip_GPIO_SetPinState(LPC_GPIO, port, pin, true);
 
-		if(invert) pm |= IOCON_INV_EN;
-
-		if(mode == pullup) {
-			pm |= IOCON_MODE_PULLUP;
-		}
-		else if(mode == pulldown) {
-			pm |= IOCON_MODE_PULLDOWN;
-		}
-
-		Chip_IOCON_PinMuxSet(LPC_IOCON, port, pin, pm);
-		Chip_GPIO_SetPinDIRInput(LPC_GPIO, port, pin);
 	}
 }
-
 DigitalIoPin::~DigitalIoPin() {
-	// TODO Auto-generated destructor stub
+// TODO Auto-generated destructor stub
 }
-
 bool DigitalIoPin::read() {
-	return Chip_GPIO_GetPinState(LPC_GPIO, port, pin);
-}
+	bool state = Chip_GPIO_GetPinState(LPC_GPIO, port_b, pin_b);
+	if (!in) {
+		if (inv) {
+			state = !state;
+		}
 
+	}
+	return state;
+}
 void DigitalIoPin::write(bool value) {
-	return Chip_GPIO_SetPinState(LPC_GPIO, port, pin, value);
-}
+	if (!in) {
+			if (inv) {
+				value = !value;
+			}
 
+		}
+	Chip_GPIO_SetPinState(LPC_GPIO, port_b, pin_b, value);
+}
