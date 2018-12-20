@@ -4,40 +4,43 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/DigitalIoPin.cpp \
+../src/LimitedCounter.cpp \
 ../src/MAXIM1249.cpp \
+../src/PavelIoPin.cpp \
 ../src/RapiData.cpp \
 ../src/SPI.cpp \
 ../src/SerialPort.cpp \
 ../src/cr_cpp_config.cpp \
 ../src/cr_startup_lpc15xx.cpp \
-../src/spi_test_3.cpp 
+../src/pavel_main.cpp 
 
 C_SRCS += \
 ../src/crp.c \
 ../src/sysinit.c 
 
 OBJS += \
-./src/DigitalIoPin.o \
+./src/LimitedCounter.o \
 ./src/MAXIM1249.o \
+./src/PavelIoPin.o \
 ./src/RapiData.o \
 ./src/SPI.o \
 ./src/SerialPort.o \
 ./src/cr_cpp_config.o \
 ./src/cr_startup_lpc15xx.o \
 ./src/crp.o \
-./src/spi_test_3.o \
+./src/pavel_main.o \
 ./src/sysinit.o 
 
 CPP_DEPS += \
-./src/DigitalIoPin.d \
+./src/LimitedCounter.d \
 ./src/MAXIM1249.d \
+./src/PavelIoPin.d \
 ./src/RapiData.d \
 ./src/SPI.d \
 ./src/SerialPort.d \
 ./src/cr_cpp_config.d \
 ./src/cr_startup_lpc15xx.d \
-./src/spi_test_3.d 
+./src/pavel_main.d 
 
 C_DEPS += \
 ./src/crp.d \

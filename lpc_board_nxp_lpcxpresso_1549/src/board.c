@@ -88,12 +88,12 @@ void Board_Debug_Init(void)
 {
 #if defined(DEBUG_UART)
 	/* Disables pullups/pulldowns and enable digitial mode */
-	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 27, (IOCON_MODE_INACT | IOCON_DIGMODE_EN));
-	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 28, (IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 13, (IOCON_MODE_INACT | IOCON_DIGMODE_EN));
+	Chip_IOCON_PinMuxSet(LPC_IOCON, 0, 18, (IOCON_MODE_INACT | IOCON_DIGMODE_EN));
 
 	/* UART signal muxing via SWM */
-	Chip_SWM_MovablePortPinAssign(SWM_UART0_RXD_I, 0, 27);
-	Chip_SWM_MovablePortPinAssign(SWM_UART0_TXD_O, 0, 28);
+	Chip_SWM_MovablePortPinAssign(SWM_UART0_RXD_I, 0, 13);
+	Chip_SWM_MovablePortPinAssign(SWM_UART0_TXD_O, 0, 18);
 
 	/* Use main clock rate as base for UART baud rate divider */
 	Chip_Clock_SetUARTBaseClockRate(Chip_Clock_GetMainClockRate(), false);
