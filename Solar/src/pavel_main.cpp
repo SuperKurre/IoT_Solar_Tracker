@@ -37,6 +37,7 @@ PavelIoPin* DIR;
 PavelIoPin* h_pin1;
 PavelIoPin* h_pin2;
 
+
 extern "C" { void RIT_IRQHandler(void)
 {
 	// This used to check if a context switch is required
@@ -62,6 +63,36 @@ extern "C" { void RIT_IRQHandler(void)
 }
 }
 
+void setup_led_pwm(){
+	Chip_SCT_Init(LPC_SCT0);
+	LPC_SCT0->CONFIG |= (3<<17); //autolimit lowcounter and highcounter
+	LPC_SCT0->CTRL_L |= (72-1) << 5; //prescale lowcounter 1mhz sctimer clock
+	LPC_SCT0->CTRL_H |= (72-1) << 5; //prescale highcounter 1mhz sctimer clock
+	LPC_SCT0->MATCHREL[0].L = 255 - 1;	//sct0 lowcounter  freq
+	LPC_SCT0->MATCHREL[0].H = 255 - 1;	//sct0 highcounter  freq
+	Chip_SWM_MovablePortPinAssign( SWM_SCT0_OUT0_O,  0,3);	//greenled port0_pin3
+	Chip_SWM_MovablePortPinAssign( SWM_SCT0_OUT1_O,  0,25);	//redled p0_25
+	LPC_SCT0->MATCHREL[2].L = 250;	// sct0 lowcounter pulsewidth GREENLED
+	LPC_SCT0->MATCHREL[1].H = 250;	// sct0 highcounter pulsewidth REDLED
+
+	LPC_SCT0->EVENT[0].STATE = 0xFFFFFFFF;	//all states allowed event0
+	LPC_SCT0->EVENT[1].STATE = 0xFFFFFFFF;	//all states allowed event1
+	LPC_SCT0->EVENT[3].STATE= 0xFFFFFFFF;   //all states allowed event3
+	LPC_SCT0->EVENT[4].STATE= 0xFFFFFFFF;   //all states allowed event4
+
+	LPC_SCT0->EVENT[0].CTRL = (1<<12);	//event0 sct0 lowcounter frequency match, select reg0
+	LPC_SCT0->EVENT[1].CTRL = ((1<<4) |(1<<12) ) ; //event1 sct0 highcounter frequency match, select reg0
+	LPC_SCT0->EVENT[3].CTRL = ((1<<12) | (2) ); //event3 sct0 lowcounter pwm_match, select reg2
+	LPC_SCT0->EVENT[4].CTRL =( (1<<4) | (1<<12) | (1)); //event4 sct0 highcounter, pwm_match,  select reg1
+
+	LPC_SCT0->OUT[0].SET =  (1<<0); //event0 sets  sct0 output0
+	LPC_SCT0->OUT[1].SET = (1<<1);  //event1 sets sct0 output1
+	LPC_SCT0->OUT[0].CLR = 	1<<3;   //event3 clears sct0 output0
+	LPC_SCT0->OUT[1].CLR =	1<<4;   //event4 clears sct0 output1
+	/*unhalt timers*/
+	LPC_SCT0->CTRL_L &=  ~(1<<2);
+	LPC_SCT0->CTRL_H &= ~(1<<2);
+}
 
 
 void setupH1PWM(){
@@ -112,6 +143,11 @@ void setupH2PWM(){
 	LPC_SCT0->CTRL_L &= ~(1 << 2);// unhalt it by clearing bit 2 of CTRL reg
 }
 
+void setLEDs(int redval, int greenval){
+	LPC_SCT0->MATCHREL[2].L = greenval;	// sct0 lowcounter pulsewidth GREENLED
+	LPC_SCT0->MATCHREL[1].H = redval;	// sct0 highcounter pulsewidth REDLED
+	int kakka=0; //for debug only
+}
 
 void setH1Value(int newval){
 	if(newval >= 0 && newval <= 1000)
@@ -210,7 +246,8 @@ static void vPWM_test_task(void* taskParameters){
 	PavelIoPin sw1(0,17,true, true, true);
 	PavelIoPin sw2(1,11,true, true, true);
 	PavelIoPin sw3(1,9,true, true, true);
-
+		setupH2PWM();
+		setupH1PWM();
 /* test_task for oscilloscope PWM */
 	for(;;){
 		if(sw1.read()){ //set h1pin true, and h2pin false
@@ -230,6 +267,45 @@ static void vPWM_test_task(void* taskParameters){
 		}
 	}
 }
+
+
+
+
+static void vPWM_led_test(void* taskParameters){
+	PavelIoPin sw1(0,17,true, true, true);
+	PavelIoPin sw2(1,11,true, true, true);
+	PavelIoPin sw3(1,9,true, true, true);
+	LimitedCounter red(250, 2, 254);
+	LimitedCounter green(250, 2, 254);
+	bool redSelected(true); //otherwise green
+	setup_led_pwm();
+
+	while(1){
+		if(sw1.read()){ //make brighter, reduce count of pwm
+			if(redSelected){
+				--red;
+			}else{
+				--green;
+			}
+			setLEDs(red, green);
+			vTaskDelay(10);
+		}else if(sw2.read()){ //make dimmer, increase count of pwm
+			if(redSelected){
+				++red;
+			}else{
+				++green;
+			}
+			setLEDs(red, green);
+			vTaskDelay(10);
+		}else if(sw3.read()){ //select green or red, toggle
+			redSelected= !redSelected;
+			while(sw3.read());
+		} else{
+			//vTaskDelay(20);
+		}
+	}
+}
+
 
 
 /*Task that reads ADC values*/
@@ -308,10 +384,11 @@ static void vTask_ADC(void* pvPrameters){
 int main(){
 
 	prvSetupHardware();
+	Board_LED_Set(0, false);
 
 	sbRIT = xSemaphoreCreateBinary();
-	setupH2PWM();
-	setupH1PWM();
+
+
 	STEP = new PavelIoPin(0, 24, false, true, false);
 	DIR = new PavelIoPin(1, 0, false, true, false);
 
@@ -324,11 +401,15 @@ int main(){
 //	xTaskCreate(vTask_ADC, "vTask_ADC",
 //			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
 //			(TaskHandle_t *) NULL);
+//
+//	xTaskCreate(vPWM_test_task, "pwm__testtask",
+//			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
+//			(TaskHandle_t *) NULL);
 
-	xTaskCreate(vPWM_test_task, "pwm__testtask",
+
+	xTaskCreate(vPWM_led_test, "vPWM_led_test",
 			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
 			(TaskHandle_t *) NULL);
-
 
 	vTaskStartScheduler();
 
