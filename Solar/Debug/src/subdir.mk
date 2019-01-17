@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../src/DCmotor.cpp \
 ../src/LimitedCounter.cpp \
 ../src/MAXIM1249.cpp \
 ../src/PavelIoPin.cpp \
@@ -19,6 +20,7 @@ C_SRCS += \
 ../src/sysinit.c 
 
 OBJS += \
+./src/DCmotor.o \
 ./src/LimitedCounter.o \
 ./src/MAXIM1249.o \
 ./src/PavelIoPin.o \
@@ -32,6 +34,7 @@ OBJS += \
 ./src/sysinit.o 
 
 CPP_DEPS += \
+./src/DCmotor.d \
 ./src/LimitedCounter.d \
 ./src/MAXIM1249.d \
 ./src/PavelIoPin.d \

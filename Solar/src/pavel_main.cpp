@@ -63,6 +63,7 @@ extern "C" { void RIT_IRQHandler(void)
 }
 }
 
+/*sctimer led pwm test initializations*/
 void setup_led_pwm(){
 	Chip_SCT_Init(LPC_SCT0);
 	LPC_SCT0->CONFIG |= (3<<17); //autolimit lowcounter and highcounter
@@ -95,6 +96,7 @@ void setup_led_pwm(){
 }
 
 
+/*sctimer motorpin1 initializatiions*/
 void setupH1PWM(){
 	Chip_SCT_Init(LPC_SCT1);
 
@@ -121,13 +123,14 @@ void setupH1PWM(){
 
 }
 
+/*sctimer motorpin2 initializations*/
 void setupH2PWM(){
 	Chip_SCT_Init(LPC_SCT0);
 
 	LPC_SCT0->CONFIG |= (1 << 17); // two 16-bit timers, auto limit, use the lowcounter for h2pin
 	LPC_SCT0->CTRL_L |= (72-1) << 5; // set prescaler, SCTimer/PWM clock == 72mhz / 72 == 1mhz SCtimer clockfreq
 
-	//matchrel_1 controls duty cycle , min=1000, max=2000, center=1500
+	//matchrel_1 controls duty cycle
 	//matchrel_0 controls the main frequency
 	LPC_SCT0->MATCHREL[0].L = 1000-1; // match 0 @ 1000 / 1000000Hz =  0,001s period = 1kHz drivingfrequency, as required
 	LPC_SCT0->MATCHREL[1].L = 0; // match 1 used for duty cycle, initially off
@@ -143,17 +146,20 @@ void setupH2PWM(){
 	LPC_SCT0->CTRL_L &= ~(1 << 2);// unhalt it by clearing bit 2 of CTRL reg
 }
 
+/*sctimer led test setter func*/
 void setLEDs(int redval, int greenval){
 	LPC_SCT0->MATCHREL[2].L = greenval;	// sct0 lowcounter pulsewidth GREENLED
 	LPC_SCT0->MATCHREL[1].H = redval;	// sct0 highcounter pulsewidth REDLED
 	int kakka=0; //for debug only
 }
 
+/*sctimer motorpin1 set*/
 void setH1Value(int newval){
 	if(newval >= 0 && newval <= 1000)
 		LPC_SCT1->MATCHREL[1].L = newval;
 }
 
+/*sctimer motorpin2 set*/
 void setH2Value(int newval){
 	if(newval >= 0 && newval <= 1000)
 		LPC_SCT0->MATCHREL[1].L = newval;
@@ -392,8 +398,8 @@ int main(){
 	STEP = new PavelIoPin(0, 24, false, true, false);
 	DIR = new PavelIoPin(1, 0, false, true, false);
 
-	h_pin1 = new PavelIoPin(0, 22, false, true, false);
-	h_pin2 = new PavelIoPin(0, 23, false, true, false);
+//	h_pin1 = new PavelIoPin(0, 22, false, true, false);
+//	h_pin2 = new PavelIoPin(0, 23, false, true, false);
 
 //	h_pin1->write(false);
 //	h_pin2->write(false);
@@ -407,9 +413,9 @@ int main(){
 //			(TaskHandle_t *) NULL);
 
 
-	xTaskCreate(vPWM_led_test, "vPWM_led_test",
-			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
-			(TaskHandle_t *) NULL);
+//	xTaskCreate(vPWM_led_test, "vPWM_led_test",
+//			configMINIMAL_STACK_SIZE + 256, NULL, (tskIDLE_PRIORITY + 1UL),
+//			(TaskHandle_t *) NULL);
 
 	vTaskStartScheduler();
 

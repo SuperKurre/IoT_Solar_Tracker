@@ -432,3 +432,844 @@ arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf"
    text	   data	    bss	    dec	    hex	filename
   13208	    104	    404	  13716	   3594	Solar.axf
  
+07:49:25 **** Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:49:28 **** Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:49:28 **** Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:49:30 **** Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Building file: ../src/pavel_main.cpp
+Invoking: MCU C++ Compiler
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/pavel_main.d" -MT"src/pavel_main.o" -MT"src/pavel_main.d" -o "src/pavel_main.o" "../src/pavel_main.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:11:1: error: 'uint16_t' does not name a type; did you mean 'char16_t'?
+ uint16_t convertToMatch0(pwmfreqhz){
+ ^~~~~~~~
+ char16_t
+../src/DCmotor.h:17:18: error: expected constructor, destructor, or type conversion before '(' token
+ setupEnablePinPWM(uint16_t pwmfreq_hz ){
+                  ^
+make: *** [src/DCmotor.o] Error 1
+make: *** Waiting for unfinished jobs....
+../src/pavel_main.cpp: In function 'void setLEDs(int, int)':
+../src/pavel_main.cpp:153:6: warning: unused variable 'kakka' [-Wunused-variable]
+  int kakka=0; //for debug only
+      ^~~~~
+../src/pavel_main.cpp: At global scope:
+../src/pavel_main.cpp:318:13: warning: 'void vTask_ADC(void*)' defined but not used [-Wunused-function]
+ static void vTask_ADC(void* pvPrameters){
+             ^~~~~~~~~
+../src/pavel_main.cpp:280:13: warning: 'void vPWM_led_test(void*)' defined but not used [-Wunused-function]
+ static void vPWM_led_test(void* taskParameters){
+             ^~~~~~~~~~~~~
+../src/pavel_main.cpp:251:13: warning: 'void vPWM_test_task(void*)' defined but not used [-Wunused-function]
+ static void vPWM_test_task(void* taskParameters){
+             ^~~~~~~~~~~~~~
+Finished building: ../src/pavel_main.cpp
+ 
+07:50:04 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:05 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:06 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:06 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:11:1: error: 'uint16_t' does not name a type; did you mean 'char16_t'?
+ uint16_t convertToMatch0(uint16_t pwmfreqhz){
+ ^~~~~~~~
+ char16_t
+../src/DCmotor.h:17:18: error: expected constructor, destructor, or type conversion before '(' token
+ setupEnablePinPWM(uint16_t pwmfreq_hz ){
+                  ^
+make: *** [src/DCmotor.o] Error 1
+07:50:52 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:53 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:53 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:50:54 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:11:1: error: 'uint16_t' does not name a type; did you mean 'char16_t'?
+ uint16_t convertToMatch0(uint16_t pwmfreqhz){
+ ^~~~~~~~
+ char16_t
+../src/DCmotor.h:17:18: error: expected constructor, destructor, or type conversion before '(' token
+ setupEnablePinPWM(uint16_t pwmfreq_hz ){
+                  ^
+make: *** [src/DCmotor.o] Error 1
+07:52:05 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:06 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:06 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:07 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'uint16_t convertToMatch0(uint16_t)':
+../src/DCmotor.h:14:14: error: 'round' is not a member of 'std'
+  return std::round(period);
+              ^~~~~
+../src/DCmotor.h: At global scope:
+../src/DCmotor.h:17:39: error: ISO C++ forbids declaration of 'setupEnablePinPWM' with no type [-fpermissive]
+ setupEnablePinPWM(uint16_t pwmfreq_hz ){
+                                       ^
+../src/DCmotor.h: In function 'int setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:18:2: error: 'uint16_6' was not declared in this scope
+  uint16_6 match0period = convertToMatch0(pwmfreq_hz);
+  ^~~~~~~~
+../src/DCmotor.h:18:2: note: suggested alternative: 'uint16_t'
+  uint16_6 match0period = convertToMatch0(pwmfreq_hz);
+  ^~~~~~~~
+  uint16_t
+../src/DCmotor.h:19:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+make: *** [src/DCmotor.o] Error 1
+07:52:23 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:23 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:24 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:24 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'uint16_t convertToMatch0(uint16_t)':
+../src/DCmotor.h:14:14: error: 'round' is not a member of 'std'
+  return std::round(period);
+              ^~~~~
+../src/DCmotor.h: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:18:2: error: 'uint16_6' was not declared in this scope
+  uint16_6 match0period = convertToMatch0(pwmfreq_hz);
+  ^~~~~~~~
+../src/DCmotor.h:18:2: note: suggested alternative: 'uint16_t'
+  uint16_6 match0period = convertToMatch0(pwmfreq_hz);
+  ^~~~~~~~
+  uint16_t
+make: *** [src/DCmotor.o] Error 1
+07:52:38 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:39 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:39 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:52:40 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'uint16_t convertToMatch0(uint16_t)':
+../src/DCmotor.h:14:14: error: 'round' is not a member of 'std'
+  return std::round(period);
+              ^~~~~
+../src/DCmotor.h: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:18:11: warning: unused variable 'match0period' [-Wunused-variable]
+  uint16_t match0period = convertToMatch0(pwmfreq_hz);
+           ^~~~~~~~~~~~
+make: *** [src/DCmotor.o] Error 1
+07:55:06 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+07:55:07 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+07:55:07 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+07:55:08 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:19:11: warning: unused variable 'match0period' [-Wunused-variable]
+  uint16_t match0period = convertToMatch0(pwmfreq_hz);
+           ^~~~~~~~~~~~
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+08:11:12 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:11:13 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:11:13 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:11:14 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:22:16: error: 'LPC_SCT1' was not declared in this scope
+  Chip_SCT_Init(LPC_SCT1);
+                ^~~~~~~~
+../src/DCmotor.h:22:2: error: 'Chip_SCT_Init' was not declared in this scope
+  Chip_SCT_Init(LPC_SCT1);
+  ^~~~~~~~~~~~~
+../src/DCmotor.h:28:32: error: 'SWM_SCT1_OUT1_O' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                ^~~~~~~~~~~~~~~
+../src/DCmotor.h:28:49: error: 'enable_port' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+../src/DCmotor.h:28:62: error: 'enable_pin' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+../src/DCmotor.h:28:2: error: 'Chip_SWM_MovablePortPinAssign' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DCmotor.cpp: At global scope:
+../src/DCmotor.cpp:10:49: error: redefinition of 'PavelIoPin* h1pin'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                                                 ^~~~~
+../src/DCmotor.cpp:10:30: note: 'PavelIoPin* h1pin' previously declared here
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                              ^~~~~
+../src/DCmotor.cpp:10:1: error: prototype for 'DCmotor::DCmotor(PavelIoPin*, int, int, uint16_t)' does not match any in class 'DCmotor'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+ ^~~~~~~
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:47:7: error: candidates are: constexpr DCmotor::DCmotor(const DCmotor&)
+ class DCmotor {
+       ^~~~~~~
+../src/DCmotor.h:49:2: error:                 DCmotor::DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t)
+  DCmotor(PavelIoPin* h1, PavelIoPin* h2, int, int, uint16_t);
+  ^~~~~~~
+make: *** [src/DCmotor.o] Error 1
+08:12:14 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:12:15 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:12:15 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:12:16 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:22:16: error: 'LPC_SCT1' was not declared in this scope
+  Chip_SCT_Init(LPC_SCT1);
+                ^~~~~~~~
+../src/DCmotor.h:22:2: error: 'Chip_SCT_Init' was not declared in this scope
+  Chip_SCT_Init(LPC_SCT1);
+  ^~~~~~~~~~~~~
+../src/DCmotor.h:28:32: error: 'SWM_SCT1_OUT1_O' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                ^~~~~~~~~~~~~~~
+../src/DCmotor.h:28:49: error: 'enable_port' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+../src/DCmotor.h:28:62: error: 'enable_pin' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+../src/DCmotor.h:28:2: error: 'Chip_SWM_MovablePortPinAssign' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DCmotor.cpp: At global scope:
+../src/DCmotor.cpp:10:49: error: redefinition of 'PavelIoPin* h1pin'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                                                 ^~~~~
+../src/DCmotor.cpp:10:30: note: 'PavelIoPin* h1pin' previously declared here
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                              ^~~~~
+../src/DCmotor.cpp:10:1: error: prototype for 'DCmotor::DCmotor(PavelIoPin*, int, int, uint16_t)' does not match any in class 'DCmotor'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+ ^~~~~~~
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:47:7: error: candidates are: constexpr DCmotor::DCmotor(const DCmotor&)
+ class DCmotor {
+       ^~~~~~~
+../src/DCmotor.h:49:2: error:                 DCmotor::DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t)
+  DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t);
+  ^~~~~~~
+make: *** [src/DCmotor.o] Error 1
+08:13:12 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:13:13 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:13:13 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:13:14 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In member function 'void DCmotor::setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:30:17: error: 'LPC_SCT1' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+                 ^~~~~~~~
+../src/DCmotor.h:30:3: error: 'Chip_SCT_Init' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+   ^~~~~~~~~~~~~
+../src/DCmotor.h:36:33: error: 'SWM_SCT1_OUT1_O' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                 ^~~~~~~~~~~~~~~
+../src/DCmotor.h:36:3: error: 'Chip_SWM_MovablePortPinAssign' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DCmotor.cpp: At global scope:
+../src/DCmotor.cpp:10:49: error: redefinition of 'PavelIoPin* h1pin'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                                                 ^~~~~
+../src/DCmotor.cpp:10:30: note: 'PavelIoPin* h1pin' previously declared here
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                              ^~~~~
+../src/DCmotor.cpp:10:1: error: prototype for 'DCmotor::DCmotor(PavelIoPin*, int, int, uint16_t)' does not match any in class 'DCmotor'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+ ^~~~~~~
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:16:7: error: candidates are: constexpr DCmotor::DCmotor(const DCmotor&)
+ class DCmotor {
+       ^~~~~~~
+../src/DCmotor.h:18:2: error:                 DCmotor::DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t)
+  DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t);
+  ^~~~~~~
+make: *** [src/DCmotor.o] Error 1
+08:17:09 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:10 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:11 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:11 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In member function 'void DCmotor::setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:30:17: error: 'LPC_SCT1' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+                 ^~~~~~~~
+../src/DCmotor.h:30:3: error: 'Chip_SCT_Init' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+   ^~~~~~~~~~~~~
+../src/DCmotor.h:36:33: error: 'SWM_SCT1_OUT1_O' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                 ^~~~~~~~~~~~~~~
+../src/DCmotor.h:36:3: error: 'Chip_SWM_MovablePortPinAssign' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../src/DCmotor.cpp: At global scope:
+../src/DCmotor.cpp:10:49: error: redefinition of 'PavelIoPin* h1pin'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                                                 ^~~~~
+../src/DCmotor.cpp:10:30: note: 'PavelIoPin* h1pin' previously declared here
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+                              ^~~~~
+../src/DCmotor.cpp:10:1: error: prototype for 'DCmotor::DCmotor(PavelIoPin*, int, int, uint16_t)' does not match any in class 'DCmotor'
+ DCmotor::DCmotor(PavelIoPin* h1pin, PavelIoPin* h1pin, int enaPort, int enaPin, uint16_t pwm_hz)   {
+ ^~~~~~~
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:16:7: error: candidates are: constexpr DCmotor::DCmotor(const DCmotor&)
+ class DCmotor {
+       ^~~~~~~
+../src/DCmotor.h:18:2: error:                 DCmotor::DCmotor(PavelIoPin*, PavelIoPin*, int, int, uint16_t)
+  DCmotor(PavelIoPin*h1, PavelIoPin*h2, int ena_port, int ena_pin, uint16_t pwmfreq);
+  ^~~~~~~
+make: *** [src/DCmotor.o] Error 1
+08:17:44 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:45 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:45 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:17:46 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h: In member function 'void DCmotor::setupEnablePinPWM(uint16_t)':
+../src/DCmotor.h:30:17: error: 'LPC_SCT1' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+                 ^~~~~~~~
+../src/DCmotor.h:30:3: error: 'Chip_SCT_Init' was not declared in this scope
+   Chip_SCT_Init(LPC_SCT1);
+   ^~~~~~~~~~~~~
+../src/DCmotor.h:36:33: error: 'SWM_SCT1_OUT1_O' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                 ^~~~~~~~~~~~~~~
+../src/DCmotor.h:36:3: error: 'Chip_SWM_MovablePortPinAssign' was not declared in this scope
+   Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [src/DCmotor.o] Error 1
+08:18:51 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:18:52 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:18:52 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:18:53 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+08:20:58 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:20:59 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:20:59 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:21:00 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+08:39:00 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:39:01 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:39:01 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:39:02 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+08:42:54 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:42:54 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:42:55 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:42:56 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+../src/DCmotor.cpp: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.cpp:48:49: error: 'enable_port' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+../src/DCmotor.cpp:48:49: note: suggested alternative: '__enable_irq'
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+                                                 __enable_irq
+../src/DCmotor.cpp:48:62: error: 'enable_pin' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+../src/DCmotor.cpp:48:62: note: suggested alternative: '__enable_irq'
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+                                                              __enable_irq
+make: *** [src/DCmotor.o] Error 1
+08:43:29 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:29 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:30 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:30 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+../src/DCmotor.cpp:33:10: error: 'DCMotor' has not been declared
+ uint16_t DCMotor::convertToMatch0(uint16_t pwmfreqhz){
+          ^~~~~~~
+../src/DCmotor.cpp:41:6: error: 'DCMotor' has not been declared
+ void DCMotor::setupEnablePinPWM(uint16_t pwmfreq_hz ){
+      ^~~~~~~
+../src/DCmotor.cpp: In function 'void setupEnablePinPWM(uint16_t)':
+../src/DCmotor.cpp:48:49: error: 'enable_port' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+../src/DCmotor.cpp:48:49: note: suggested alternative: '__enable_irq'
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                 ^~~~~~~~~~~
+                                                 __enable_irq
+../src/DCmotor.cpp:48:62: error: 'enable_pin' was not declared in this scope
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+../src/DCmotor.cpp:48:62: note: suggested alternative: '__enable_irq'
+  Chip_SWM_MovablePortPinAssign(SWM_SCT1_OUT1_O, enable_port, enable_pin);  //set enablepin pwm
+                                                              ^~~~~~~~~~
+                                                              __enable_irq
+make: *** [src/DCmotor.o] Error 1
+08:43:45 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:46 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:46 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+08:43:47 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+09:00:57 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:00:58 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:00:59 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:00:59 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+../src/DCmotor.cpp:60:24: error: no 'void DCmotor::runMotor()' member function declared in class 'DCmotor'
+ void DCmotor::runMotor(){
+                        ^
+make: *** [src/DCmotor.o] Error 1
+09:01:19 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:19 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:20 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:20 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+../src/DCmotor.cpp: In member function 'void DCmotor::runMotor()':
+../src/DCmotor.cpp:61:28: error: expected primary-expression before ';' token
+  LPC_SCT1->MATCHREL[1].L = ;
+                            ^
+make: *** [src/DCmotor.o] Error 1
+09:01:31 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:31 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:32 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:01:32 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+09:02:00 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:02:00 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:02:01 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:02:02 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+09:15:01 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:02 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:02 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:03 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+../src/DCmotor.cpp:59:6: error: prototype for 'void DCmotor::runMotor(uint16_t)' does not match any in class 'DCmotor'
+ void DCmotor::runMotor(uint16_t dutycycle_percent){
+      ^~~~~~~
+In file included from ../src/DCmotor.cpp:8:0:
+../src/DCmotor.h:25:7: error: candidate is: void DCmotor::runMotor()
+  void runMotor();
+       ^~~~~~~~
+make: *** [src/DCmotor.o] Error 1
+09:15:32 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:32 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:33 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:15:34 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+09:27:28 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:27:28 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:27:29 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:27:30 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
+09:34:45 **** Incremental Build of configuration Debug for project FreeRTOS ****
+make -r all 
+make: Nothing to be done for `all'.
+09:34:45 **** Incremental Build of configuration Debug for project lpc_chip_15xx ****
+make -r all 
+make: Nothing to be done for `all'.
+09:34:46 **** Incremental Build of configuration Debug for project lpc_board_nxp_lpcxpresso_1549 ****
+make -r all 
+make: Nothing to be done for `all'.
+09:34:47 **** Incremental Build of configuration Debug for project Solar ****
+make -r -j4 all 
+Building file: ../src/DCmotor.cpp
+Invoking: MCU C++ Compiler
+arm-none-eabi-c++ -std=c++11 -D__NEWLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCPP_USE_HEAP -D__LPC15XX__ -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\inc" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\include" -I"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\src\portable\GCC\ARM_CM3" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -mcpu=cortex-m3 -mthumb -D__NEWLIB__ -MMD -MP -MF"src/DCmotor.d" -MT"src/DCmotor.o" -MT"src/DCmotor.d" -o "src/DCmotor.o" "../src/DCmotor.cpp"
+Finished building: ../src/DCmotor.cpp
+ 
+Building target: Solar.axf
+Invoking: MCU C++ Linker
+arm-none-eabi-c++ -nostdlib -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_board_nxp_lpcxpresso_1549\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\lpc_chip_15xx\Debug" -L"C:\Users\Lauri\Documents\MCUXpressoIDE_10.2.1_795\workspace\Solar_Tracker_Latest_Workspace\Solar_Project\FreeRTOS\Debug" -Xlinker -Map="Solar.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m3 -mthumb -T "Solar_Debug.ld" -o "Solar.axf"  ./src/DCmotor.o ./src/LimitedCounter.o ./src/MAXIM1249.o ./src/PavelIoPin.o ./src/RapiData.o ./src/SPI.o ./src/SerialPort.o ./src/cr_cpp_config.o ./src/cr_startup_lpc15xx.o ./src/crp.o ./src/pavel_main.o ./src/sysinit.o   -llpc_board_nxp_lpcxpresso_1549 -llpc_chip_15xx -lFreeRTOS
+Memory region         Used Size  Region Size  %age Used
+       MFlash256:       11616 B       256 KB      4.43%
+      Ram0_16_32:         500 B        32 KB      1.53%
+          Ram2_4:          0 GB         4 KB      0.00%
+Finished building target: Solar.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "Solar.axf"; # arm-none-eabi-objcopy -v -O binary "Solar.axf" "Solar.bin" ; # checksum -p LPC1549 -d "Solar.bin";
+   text	   data	    bss	    dec	    hex	filename
+  11512	    104	    396	  12012	   2eec	Solar.axf
+ 
